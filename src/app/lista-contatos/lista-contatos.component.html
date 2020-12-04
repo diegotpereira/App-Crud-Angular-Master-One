@@ -1,0 +1,28 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Lista de contatos</li>
+      <li class="breadcrumb-item active" aria-current="page"><a routerLink="/contato/novo">Adicionar Novo</a></li>
+    </ol>
+    </nav>
+    
+    <table class="table">    
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Telefone</th>
+          <th scope="col">#</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contato of filtrarContatos">
+          <td>{{contato.nome}}</td>
+          <td>{{contato.email}}</td>
+          <td>{{contato.telefone}}</td>
+          <td>
+            <a [routerLink]="['', 'contato', contato.id, 'editar']" class="btn btn-outline-info btn-sm mr-2">Editar</a>
+            <a [routerLink]="['', 'contato', contato.id, 'deletar']" class="btn btn-outline-danger btn-sm mr-2">Deletar</a>     
+          </td>
+        </tr>
+      </tbody>
+    </table>
